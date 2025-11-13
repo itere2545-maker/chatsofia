@@ -1,8 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Heart, Shield } from 'lucide-react';
 import './FinalCTASection.css';
 
+declare global {
+  interface Window {
+    checkoutElements?: {
+      init: (mode: string) => { mount: (selector: string) => void }
+    }
+  }
+}
+
 const FinalCTASection: React.FC = () => {
+  useEffect(() => {
+    const mount = () => {
+      const ce = window.checkoutElements;
+      if (ce) ce.init('salesFunnel').mount('#hotmart-sales-funnel');
+    };
+    if (!window.checkoutElements) {
+      const s = document.createElement('script');
+      s.src = 'https://checkout.hotmart.com/lib/hotmart-checkout-elements.js';
+      s.onload = mount;
+      document.body.appendChild(s);
+    } else {
+      mount();
+    }
+  }, []);
   return (
     <section className="final-cta-section">
       <div className="container">
@@ -150,6 +172,7 @@ const FinalCTASection: React.FC = () => {
                 <p className="renewal-price">👉 7,90 USD al mes</p>
                 <p className="renewal-note">(convertido automáticamente a la moneda de tu país)</p>
                 <p className="renewal-extra">Menos que una comida rápida… para tener apoyo emocional las 24 horas del día.</p>
+                <div id="hotmart-sales-funnel"></div>
               </div>
             </div>
           </div>
