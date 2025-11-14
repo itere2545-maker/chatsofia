@@ -45,8 +45,10 @@
   font-size: 24px;
   color: #FF0099;
   font-weight: 600;
-  margin: 0;
-  line-height: 1.4;
+  margin: 0 auto;
+  line-height: 1.2;
+  text-wrap: balance;
+  max-width: 36ch;
 }
 
 /* Stats Grid */
@@ -379,4 +381,9 @@
   .highlight-sub {
     font-size: 14px;
   }
+}
+.stat-icon {
+  font-size: 24px;
+  line-height: 1;
+  margin: 0 0 8px 0;
 }

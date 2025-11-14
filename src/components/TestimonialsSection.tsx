@@ -28,9 +28,26 @@ const TestimonialsSection: React.FC = () => {
   ];
 
   const stats = [
-    { number: "847", label: "Mujeres han recuperado su amor" },
-    { number: "96%", label: "Tasa de éxito en reencuentros" },
-    { number: "<30", label: "Días promedio para ver resultados" }
+    {
+      number: "847",
+      lines: [
+        <span className="text-success">Mujeres recuperaron su amor</span>,
+        "y reconstruyeron una relación emocionalmente estable"
+      ]
+    },
+    {
+      number: "91%",
+      lines: [
+        <span className="text-success">Tasa de éxito comprobada</span>,
+        "entre quienes aplicaron los pasos y las prácticas de la Dra. Sofía"
+      ]
+    },
+    {
+      number: "11 días",
+      lines: [
+        <span className="text-success">Para ver resultados efectivos en claridad emocional</span>
+      ]
+    }
   ];
 
   return (
@@ -42,9 +59,7 @@ const TestimonialsSection: React.FC = () => {
             <h2 className="section-title">
               No estás sola en este viaje
             </h2>
-            <p className="section-subtitle">
-              847 mujeres ya recuperaron su amor con esta mentoría
-            </p>
+            <p className="section-subtitle">847 mujeres viven relaciones estables después de hacer esta mentoría</p>
           </div>
 
           {/* Stats */}
@@ -52,7 +67,9 @@ const TestimonialsSection: React.FC = () => {
             {stats.map((stat, index) => (
               <div key={index} className="stat-card">
                 <div className="stat-number">{stat.number}</div>
-                <div className="stat-label">{stat.label}</div>
+                {stat.lines.map((line, i) => (
+                  <div key={i} className="stat-label">{line}</div>
+                ))}
               </div>
             ))}
           </div>
@@ -79,7 +96,7 @@ const TestimonialsSection: React.FC = () => {
                   </p>
                   <div className="testimonial-highlight">
                     <Heart size={16} color="#FF0099" />
-                    <span className="highlight-text">{testimonial.highlight}</span>
+                    <span className="highlight-text text-success">{testimonial.highlight}</span>
                   </div>
                 </div>
               </div>
@@ -104,7 +121,7 @@ const TestimonialsSection: React.FC = () => {
               
               <div className="bottom-highlight">
                 <p className="highlight-main">
-                  Tú también puedes ser la próxima historia de éxito.
+                  <span className="text-success">Tú también puedes ser la próxima historia de éxito.</span>
                 </p>
                 <p className="highlight-sub">
                   La única diferencia entre ellas y tú es que ellas dieron el paso.

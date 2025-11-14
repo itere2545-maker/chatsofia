@@ -43,13 +43,11 @@ const FinalCTASection: React.FC = () => {
                 Opción 1: Hacer esto sola
               </h3>
               <div className="option-content">
-                <p className="option-text">
-                  Puedes seguir intentándolo con las mismas estrategias que ya usaste.
-                  <br />
-                  Puedes seguir preguntándote qué pasaría si hubieras dicho algo diferente.
-                  <br />
-                  Puedes seguir rogando en silencio mientras él se aleja más.
-                </p>
+                <ul className="option-list">
+                  <li className="option-item"><span className="option-marker">•</span><span className="option-textline">Puedes seguir intentándolo con las mismas estrategias que ya usaste.</span></li>
+                  <li className="option-item"><span className="option-marker">•</span><span className="option-textline">Puedes seguir preguntándote qué pasaría si hubieras dicho algo diferente.</span></li>
+                  <li className="option-item"><span className="option-marker">•</span><span className="option-textline">Puedes seguir rogando en silencio mientras él se aleja más.</span></li>
+                </ul>
                 <div className="option-result">
                   <p className="result-text">
                     <strong>Y en 6 meses seguirás exactamente donde estás ahora.</strong>
@@ -69,13 +67,11 @@ const FinalCTASection: React.FC = () => {
                 Opción 2: Tener una aliada que camine contigo
               </h3>
               <div className="option-content">
-                <p className="option-text">
-                  Tendrás respuestas específicas para tus situaciones específicas.
-                  <br />
-                  Tendrás una voz que te guíe cuando él responda.
-                  <br />
-                  Tendrás herramientas que funcionan, no teorías bonitas.
-                </p>
+                <ul className="option-list">
+                  <li className="option-item"><span className="option-marker">•</span><span className="option-textline">Tendrás respuestas específicas para tus situaciones específicas.</span></li>
+                  <li className="option-item"><span className="option-marker">•</span><span className="option-textline">Tendrás una voz que te guíe cuando él responda.</span></li>
+                  <li className="option-item"><span className="option-marker">•</span><span className="option-textline">Tendrás herramientas que funcionan, no teorías bonitas.</span></li>
+                </ul>
                 <div className="option-result">
                   <p className="result-text highlight">
                     <strong>Y en 30 días podrías estar celebrando su regreso.</strong>
@@ -107,8 +103,8 @@ const FinalCTASection: React.FC = () => {
           <div className="offer-section">
             <div className="offer-card">
               <div className="offer-header">
-                <img className="offer-badge-image" src="https://i.imgur.com/LD6khdu.png" alt="Oferta" />
                 <h3 className="offer-title">OFERTA EXCLUSIVA PARA CLIENTAS DE LA FRECUENCIA DEL REENCUENTRO</h3>
+                <img className="offer-badge-image" src="https://i.imgur.com/LD6khdu.png" alt="Oferta" />
               </div>
               <p className="offer-subtitle">Tu compra fue verificada con éxito.</p>
               <p className="offer-text">Por eso hoy desbloqueaste una condición que no está disponible para el público general:</p>
@@ -116,7 +112,12 @@ const FinalCTASection: React.FC = () => {
               <div className="bonus-section">
                 <h4 className="bonus-title">💎 TODO LO QUE RECIBES HOY</h4>
                 <div className="bonus-card">
-                  <p className="bonus-highlight">🎁 BONO GRATUITO – Acceso vitalicio a la Mentoría del Amor Eterno™</p>
+                  <p className="bonus-highlight">🎁 BONO GRATUITO Acceso vitalicio a la Mentoría del Amor Eterno™</p>
+                  <p className="bonus-price">
+                    <span className="price-old">$19</span>
+                    <span className="price-sep">→</span>
+                    <span className="price-new">$0</span>
+                  </p>
                   <p className="bonus-sub">Con los 4 pilares principales:</p>
                   <ul className="pillars-list">
                     <li className="pillar-item">
@@ -153,7 +154,13 @@ const FinalCTASection: React.FC = () => {
               </div>
 
               <div className="main-access">
-                <h4 className="access-title">⭐ ACCESO PRINCIPAL – CHAT SOFÍA 24/7 (30 días incluidos)</h4>
+                <div className="access-combo">+</div>
+                <h4 className="access-title">⭐ ACCESO PRINCIPAL CHAT SOFÍA 24/7<br />(30 días incluidos)</h4>
+                <p className="access-price">
+                  <span className="access-price-old">$14,90</span>
+                  <span className="access-price-sep">→</span>
+                  <span className="access-price-new">$7,90<span className="access-price-note"> al mes</span></span>
+                </p>
                 <p className="access-sub">Tu guía emocional inteligente disponible a cualquier hora:</p>
                 <ul className="scenarios-list">
                   <li className="scenario-item"><span className="scenario-marker">💬</span><span className="scenario-text">Cuando él escribe repentinamente</span></li>
@@ -167,12 +174,17 @@ const FinalCTASection: React.FC = () => {
               </div>
 
               <div className="renewal-section">
-                <h4 className="renewal-title">🔄 Renovación opcional</h4>
-                <p className="renewal-text">Después de los 30 días incluidos, puedes seguir con el Chat Sofía por solo:</p>
-                <p className="renewal-price">👉 7,90 USD al mes</p>
-                <p className="renewal-note">(convertido automáticamente a la moneda de tu país)</p>
-                <p className="renewal-extra">Menos que una comida rápida… para tener apoyo emocional las 24 horas del día.</p>
-                <div id="hotmart-sales-funnel"></div>
+                <h4 className="renewal-title">Tener a la Dra. Sofía guiándote en cada paso <span className="text-magenta">no es un lujo</span>…</h4>
+                <p className="renewal-text">es la diferencia entre <span className="text-success">mantener el amor</span> o <span className="text-magenta">repetir los mismos errores</span>.</p>
+                <p className="renewal-extra">Si quieres seguir <span className="text-success">segura</span>, <span className="text-success">tranquila</span> y diciendo siempre lo correcto, tu acceso está <span className="text-magenta">aquí, ahora</span>.</p>
+                <div className="renewal-highlight">
+                  <div className="renewal-icon"><Heart size={20} color="#FF0099" /></div>
+                  <p className="renewal-cta-main">👉 Elige abajo cómo quieres continuar.</p>
+                  <p className="renewal-cta-sub">Tu decisión define tu próximo capítulo.</p>
+                </div>
+                <div className="sales-funnel-wrapper">
+                  <div id="hotmart-sales-funnel"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -207,17 +219,6 @@ const FinalCTASection: React.FC = () => {
 
           {/* Final Button */}
           <div className="final-button-section">
-            <p className="button-note">
-              Al hacer clic, obtienes acceso inmediato a toda la mentoría
-              <br />
-              + acceso de por vida al grupo privado
-              <br />
-              + mi apoyo personal durante todo el proceso
-            </p>
-            
-            <p className="currency-note">
-              <small>convertido automaticamente a la moneda de tu pais</small>
-            </p>
           </div>
 
           {/* Final Message */}

@@ -12,9 +12,7 @@ const TransformationSection: React.FC = () => {
             <h2 className="section-title">
               Porque sé que estás pensando:
             </h2>
-            <p className="section-subtitle">
-              "Pero si ya tengo el método, ¿por qué necesito esto?"
-            </p>
+            <p className="section-subtitle">"Pero si ya tengo el método, ¿por qué necesito esto?"</p>
           </div>
 
           {/* Main Message */}

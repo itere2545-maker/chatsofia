@@ -47,6 +47,10 @@
   font-weight: 600;
   margin: 0;
   line-height: 1.4;
+  text-wrap: balance;
+  max-width: 36ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Modules Intro */
@@ -67,6 +71,9 @@
 
 .intro-icon {
   margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .intro-title {

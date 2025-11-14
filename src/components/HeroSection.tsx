@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Heart, CheckCircle } from 'lucide-react';
 import './HeroSection.css';
 
 const HeroSection: React.FC = () => {
+  const messages = [
+    'Tu compra fue aprobada',
+    'Mira tu regalo al final de esta página'
+  ];
+  const [messageIndex, setMessageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setMessageIndex((prev) => (prev + 1) % messages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="hero-section">
       {/* Barra de notificação profissional */}
@@ -10,7 +23,7 @@ const HeroSection: React.FC = () => {
         <div className="container">
           <div className="notification-content">
             <Heart size={16} color="#00FF88" />
-            <span className="notification-success">Tu compra fue aprobada</span>
+            <span className="notification-success">{messages[messageIndex]}</span>
           </div>
         </div>
       </div>
@@ -40,7 +53,7 @@ const HeroSection: React.FC = () => {
             <div className="message-card">
               <div className="message-highlight">
                 <p className="highlight-text">
-                  Ya diste el paso correcto.
+                  <span className="text-success">Ya diste el paso correcto.</span>
                   <br />
                   <strong className="text-magenta">Él va a volver.</strong>
                 </p>

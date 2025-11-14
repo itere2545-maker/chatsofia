@@ -88,6 +88,34 @@
   opacity: 0.9;
 }
 
+.option-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.option-marker {
+  color: #FF0099;
+  font-size: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.option-textline {
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
 .option-result {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
@@ -153,6 +181,9 @@
 
 .cta-icon {
   margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cta-main-title {
@@ -289,6 +320,40 @@
   font-weight: 600;
   color: #ffffff;
   margin: 0 0 8px 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.bonus-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 6px 0 12px 0;
+}
+
+.price-old {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  opacity: 0.6;
+  text-decoration: line-through;
+}
+
+.price-sep {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  opacity: 0.8;
+}
+
+.price-new {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: #FF0099;
 }
 
 .bonus-sub {
@@ -344,7 +409,7 @@
   margin: 12px 0 0 0;
 }
 
-.main-access { margin: 24px 0; }
+.main-access { margin: 24px 0; text-align: center; }
 .access-title {
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
@@ -352,6 +417,57 @@
   color: #FF0099;
   margin: 0 0 8px 0;
   text-align: center;
+}
+.access-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 6px 0 12px 0;
+}
+.access-price-old {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  opacity: 0.6;
+  text-decoration: line-through;
+}
+.access-price-sep {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  opacity: 0.8;
+}
+.access-price-new {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: #00FF88;
+}
+
+.access-price-note {
+  font-family: 'Roboto', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  color: #ffffff;
+  opacity: 0.75;
+  margin-left: 4px;
+}
+.access-combo {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 8px auto;
+  border-radius: 50%;
+  background: rgba(255, 0, 153, 0.12);
+  color: #FF0099;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 1;
+  font-family: 'Montserrat', sans-serif;
 }
 .access-sub {
   font-family: 'Roboto', sans-serif;
@@ -397,19 +513,26 @@
 .renewal-section { margin: 24px 0 0 0; }
 .renewal-title {
   font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   color: #ffffff;
   margin: 0 0 8px 0;
+  text-align: center;
+  text-wrap: balance;
 }
 .renewal-text,
 .renewal-note,
 .renewal-extra {
   font-family: 'Roboto', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   color: #ffffff;
   opacity: 0.9;
   margin: 6px 0;
+  text-align: center;
+  text-wrap: balance;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .renewal-price {
   font-family: 'Montserrat', sans-serif;
@@ -418,19 +541,34 @@
   color: #FF0099;
   margin: 4px 0;
 }
-#hotmart-sales-funnel {
-  margin: 16px auto;
-  padding: 0;
-  box-sizing: border-box;
+.renewal-highlight {
+  background: linear-gradient(135deg, rgba(255, 0, 153, 0.18), rgba(255, 255, 255, 0.06));
+  border-radius: 16px;
+  padding: 24px;
+  margin: 16px 0 0 0;
+  border-left: 4px solid #FF0099;
+  text-align: center;
+  box-shadow: 0 10px 24px rgba(255, 0, 153, 0.15);
 }
-.custom-element__iframe {
-  display: block !important;
-  width: 100% !important;
-  min-width: 0 !important;
-  border: 0;
+.renewal-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
 }
-@media (max-width: 768px) {
-  #hotmart-sales-funnel { padding: 0 10px; }
+.renewal-cta-main {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #FF0099;
+  margin: 0 0 8px 0;
+}
+.renewal-cta-sub {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+  opacity: 0.9;
+  margin: 0;
 }
 /* Guarantee */
 .guarantee-section {
@@ -824,4 +962,8 @@
   .message-text {
     font-size: 15px;
   }
+}
+.sales-funnel-wrapper {
+  width: 320px;
+  margin: 24px auto 0;
 }

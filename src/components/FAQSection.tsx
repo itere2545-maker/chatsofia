@@ -91,7 +91,7 @@ const FAQSection: React.FC = () => {
               </p>
               <div className="bottom-highlight">
                 <p className="highlight-text">
-                  Tu historia de amor no termina aquí.
+                  <span className="text-success">Tu historia de amor no termina aquí.</span>
                   <br />
                   <strong className="text-magenta">Solo está esperando que des el siguiente paso.</strong>
                 </p>
