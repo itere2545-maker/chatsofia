@@ -13,7 +13,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(255, 0, 153, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle at 50% 50%, rgba(227, 79, 159, 0.08) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -59,8 +59,8 @@
 }
 
 .option-right {
-  border-color: rgba(255, 0, 153, 0.3);
-  background: linear-gradient(135deg, rgba(255, 0, 153, 0.1), rgba(255, 255, 255, 0.05));
+  border-color: rgba(227, 79, 159, 0.22);
+  background: linear-gradient(135deg, rgba(227, 79, 159, 0.08), rgba(255, 255, 255, 0.04));
 }
 
 .option-title {
@@ -73,7 +73,7 @@
 }
 
 .option-title.highlight {
-  color: #FF0099;
+  color: #E34F9F;
 }
 
 .option-content {
@@ -89,10 +89,10 @@
 }
 
 .option-result {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 12px;
   padding: 16px;
-  border-left: 3px solid #FF0099;
+  border-left: 3px solid #E34F9F;
 }
 
 .result-text {
@@ -103,7 +103,7 @@
 }
 
 .result-text.highlight {
-  color: #FF0099;
+  color: #E34F9F;
 }
 
 .option-divider {
@@ -117,7 +117,7 @@
 .divider-line {
   width: 2px;
   height: 60px;
-  background: linear-gradient(to bottom, rgba(255, 0, 153, 0.5), transparent);
+  background: linear-gradient(to bottom, rgba(227, 79, 159, 0.35), transparent);
 }
 
 .divider-text {

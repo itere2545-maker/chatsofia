@@ -52,19 +52,15 @@ const ModulesSection: React.FC = () => {
         <div className="modules-content">
           {/* Header */}
           <div className="modules-header">
-            <h2 className="modules-title">
-              Por eso creé algo que va más allá del método:
-            </h2>
-            <p className="modules-subtitle">
-              Una experiencia que te acompaña paso a paso
-            </p>
+            <h2 className="modules-title">💎 Mentoría completa – GRATIS</h2>
+            <p className="modules-subtitle">Acceso vitalicio a todos los módulos (valor real $39 USD)</p>
           </div>
 
           {/* Main Message */}
           <div className="modules-intro">
             <div className="intro-card">
               <div className="intro-icon">
-                <Heart size={48} color="#FF0099" />
+                <Heart size={48} color="#E34F9F" />
               </div>
               <h3 className="intro-title">
                 La Mentoría del Amor Eterno™
