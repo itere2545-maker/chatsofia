@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Mentoría del Amor Eterno - Design System */
+    --background: 240 5% 6%;
+    --background-secondary: 240 5% 10%;
+    --background-header: 240 8% 4%;
+    
+    --foreground: 0 0% 97%;
+    --foreground-secondary: 0 0% 72%;
+
+    --card: 240 5% 10%;
+    --card-foreground: 0 0% 97%;
+
+    --popover: 240 5% 10%;
+    --popover-foreground: 0 0% 97%;
+
+    --primary: 328 100% 45%;
+    --primary-foreground: 0 0% 97%;
+    --primary-light: 337 100% 85%;
+
+    --secondary: 39 69% 75%;
+    --secondary-foreground: 240 5% 10%;
+
+    --muted: 240 5% 10%;
+    --muted-foreground: 0 0% 72%;
+
+    --accent: 328 100% 45%;
+    --accent-foreground: 0 0% 97%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 97%;
+
+    --border: 240 5% 20%;
+    --input: 240 5% 20%;
+    --ring: 328 100% 45%;
+
+    --radius: 1rem;
+
+    /* Mentoría-specific colors */
+    --rosa-vibrante: 328 100% 45%;
+    --rosa-claro: 337 100% 85%;
+    --dorado-suave: 39 69% 75%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(240 5% 6%) 0%, hsl(240 5% 10%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(240 5% 10%) 0%, hsl(240 5% 12%) 100%);
+    
+    /* Shadows */
+    --shadow-card: 0 4px 20px -2px hsl(328 100% 45% / 0.1);
+    --shadow-card-hover: 0 8px 30px -4px hsl(328 100% 45% / 0.2);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+  }
+  
+  html {
+    @apply overflow-x-hidden;
+  }
+}
+
+.ritual-content {
+  @apply text-foreground/90;
+  line-height: 1.7;
+}
+
+.ritual-content h2 {
+  @apply text-xl md:text-2xl font-bold text-primary mt-8 mb-4;
+}
+
+.ritual-content h3 {
+  @apply text-lg md:text-xl font-semibold text-primary-light mt-6 mb-3;
+}
+
+.ritual-content p {
+  @apply mb-4;
+}
+
+.ritual-content ul, .ritual-content ol {
+  @apply mb-4 ml-6 space-y-2;
+}
+
+.ritual-content ul li {
+  @apply list-disc;
+}
+
+.ritual-content ol li {
+  @apply list-decimal;
+}
+
+.ritual-content strong {
+  @apply font-semibold text-foreground;
+}
+
+.ritual-content em {
+  @apply italic;
+}
+
+.ritual-content hr {
+  @apply border-border my-6;
+}
