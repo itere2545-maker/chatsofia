@@ -18,10 +18,10 @@ const Soporte = () => {
             <div className="flex items-center gap-3 text-foreground">
               <Mail className="w-5 h-5 text-primary" />
               <a 
-                href="mailto:soporte@mentoriadelamoreterno.com"
+                href="mailto:correofdr@outlook.com?subject=Soporte%2024h%20-%20Chat%20Sof%C3%ADa&body=Cualquier%20duda%20o%20reclamaci%C3%B3n%2C%20cont%C3%A1ctanos.%20Soporte%2024%20horas."
                 className="hover:text-primary transition-colors underline"
               >
-                soporte@mentoriadelamoreterno.com
+                correofdr@outlook.com
               </a>
             </div>
 
@@ -31,9 +31,14 @@ const Soporte = () => {
             </div>
           </div>
 
-          <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-            Contactar soporte
-          </Button>
+          <a
+            href="https://wa.me/5511961093355?text=Cualquier%20duda%20o%20reclamaci%C3%B3n%2C%20cont%C3%A1ctanos.%20Soporte%2024%20horas."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 h-11 rounded-md px-8 bg-primary hover:bg-primary/90 text-primary-foreground text-sm font-medium"
+          >
+            Contactar soporte 24h por WhatsApp
+          </a>
         </div>
       </div>
     </section>

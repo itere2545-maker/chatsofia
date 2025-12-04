@@ -12,26 +12,27 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-background-header shadow-lg border-b border-border/50">
-      <div className="container mx-auto px-4 h-[60px] md:h-[70px] flex items-center justify-between">
-        <div className="flex items-center gap-2 md:gap-3">
+      <div className="container mx-auto px-4 py-2 grid grid-cols-2 items-center gap-2 md:h-[70px] md:flex md:justify-between">
+        <div className="flex items-center gap-2 md:gap-3 min-w-0">
           <div className="flex items-center gap-1">
-            <Heart className="w-4 h-4 md:w-5 md:h-5 text-primary fill-primary" />
-            <MessageCircle className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+            <Heart className="w-3 h-3 md:w-5 md:h-5 text-primary fill-primary" />
+            <MessageCircle className="w-3 h-3 md:w-5 md:h-5 text-primary" />
           </div>
           <h1
-            className="text-sm md:text-lg lg:text-xl font-semibold tracking-wide text-foreground cursor-pointer hover:text-primary"
+            className="flex-1 min-w-0 text-sm md:text-lg lg:text-xl font-semibold tracking-wide text-foreground cursor-pointer hover:text-primary whitespace-normal break-words"
             onClick={() => navigate("/")}
           >
             <span className="hidden sm:inline">Chat Sofía 24/7 + </span>
-            <span>Mentoría del Amor Eterno™</span>
+            <span className="inline">Mentoría del </span>
+            <span className="block sm:inline">Amor Eterno™</span>
           </h1>
         </div>
         
-        <div className="flex items-center gap-3 md:gap-4">
+        <div className="flex items-center gap-2 md:gap-4 justify-self-end md:justify-end">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="sm" className="text-xs md:text-sm">
-                Contactar soporte 24h
+              <Button variant="outline" size="sm" className="text-xs md:text-sm px-2.5 py-1 rounded-full whitespace-nowrap">
+                Soporte 24h
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="min-w-[220px]">
@@ -52,14 +53,14 @@ const Header = () => {
           </DropdownMenu>
           {user ? (
             <>
-              <span className="hidden md:block text-primary-light text-sm">
+              <span className="hidden md:block text-primary-light text-sm whitespace-nowrap">
                 Hola, hermosa 💕
               </span>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={signOut}
-                className="text-xs md:text-sm text-foreground-secondary hover:text-primary"
+                className="text-xs md:text-sm text-foreground-secondary hover:text-primary whitespace-nowrap"
               >
                 Cerrar sesión
               </Button>
