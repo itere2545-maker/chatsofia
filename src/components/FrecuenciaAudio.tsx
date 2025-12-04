@@ -1,9 +1,51 @@
 import { Headphones, Play, Pause } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const FrecuenciaAudio = () => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [duration, setDuration] = useState(0);
+  const [current, setCurrent] = useState(0);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    const onLoaded = () => setDuration(audio.duration || 0);
+    const onTime = () => setCurrent(audio.currentTime || 0);
+    const onEnded = () => {
+      setIsPlaying(false);
+      setCurrent(0);
+    };
+    audio.addEventListener("loadedmetadata", onLoaded);
+    audio.addEventListener("timeupdate", onTime);
+    audio.addEventListener("ended", onEnded);
+    return () => {
+      audio.removeEventListener("loadedmetadata", onLoaded);
+      audio.removeEventListener("timeupdate", onTime);
+      audio.removeEventListener("ended", onEnded);
+    };
+  }, []);
+
+  const togglePlay = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (isPlaying) {
+      audio.pause();
+      setIsPlaying(false);
+    } else {
+      audio.play();
+      setIsPlaying(true);
+    }
+  };
+
+  const format = (s: number) => {
+    const m = Math.floor(s / 60);
+    const r = Math.floor(s % 60);
+    return `${m}:${r < 10 ? "0" : ""}${r}`;
+  };
+
+  const progress = duration > 0 ? (current / duration) * 100 : 0;
 
   return (
     <section className="py-16 md:py-20 bg-background-secondary">
@@ -54,14 +96,28 @@ const FrecuenciaAudio = () => {
                 </p>
               </div>
 
-              {/* Barra de progreso simulada */}
+              {/* Barra de progreso real */}
               <div className="w-full space-y-2">
-                <div className="h-2 bg-muted rounded-full overflow-hidden">
-                  <div className="h-full bg-gradient-to-r from-primary to-secondary w-0 rounded-full transition-all duration-300"></div>
+                <div
+                  className="h-2 bg-muted rounded-full overflow-hidden cursor-pointer"
+                  onClick={(e) => {
+                    const rect = (e.currentTarget as HTMLDivElement).getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const pct = Math.min(Math.max(x / rect.width, 0), 1);
+                    const audio = audioRef.current;
+                    if (audio && duration > 0) {
+                      audio.currentTime = pct * duration;
+                    }
+                  }}
+                >
+                  <div
+                    className="h-full bg-gradient-to-r from-primary to-secondary rounded-full transition-all duration-100"
+                    style={{ width: `${progress}%` }}
+                  />
                 </div>
                 <div className="flex justify-between text-xs text-foreground-secondary">
-                  <span>0:00</span>
-                  <span>7:00</span>
+                  <span>{format(current)}</span>
+                  <span>{duration ? format(duration) : "–:–"}</span>
                 </div>
               </div>
 
@@ -69,7 +125,7 @@ const FrecuenciaAudio = () => {
               <Button 
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
-                onClick={() => setIsPlaying(!isPlaying)}
+                onClick={togglePlay}
               >
                 {isPlaying ? (
                   <>
@@ -83,6 +139,7 @@ const FrecuenciaAudio = () => {
                   </>
                 )}
               </Button>
+              <audio ref={audioRef} src="/frecuencia-amor-eterno.MP3" preload="metadata" className="hidden" />
             </div>
           </div>
 

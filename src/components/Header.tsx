@@ -1,11 +1,14 @@
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { Heart, MessageCircle } from "lucide-react";
+import { Heart, MessageCircle, Mail, Phone } from "lucide-react";
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu";
 
 const Header = () => {
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
+  const whatsappLink = `https://wa.me/5511961093355?text=${encodeURIComponent("Cualquier duda o reclamación, contáctanos. Soporte 24 horas.")}`;
+  const mailLink = `mailto:correofdr@outlook.com?subject=${encodeURIComponent("Soporte 24 horas - Chat Sofía")}&body=${encodeURIComponent("Cualquier duda o reclamación, contáctanos. Soporte 24 horas.")}`;
 
   return (
     <header className="sticky top-0 z-50 bg-background-header shadow-lg border-b border-border/50">
@@ -25,6 +28,28 @@ const Header = () => {
         </div>
         
         <div className="flex items-center gap-3 md:gap-4">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" size="sm" className="text-xs md:text-sm">
+                Contactar soporte 24h
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="min-w-[220px]">
+              <DropdownMenuItem>
+                <a href={mailLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 w-full">
+                  <Mail className="w-4 h-4 text-primary" />
+                  <span>E-mail: correofdr@outlook.com</span>
+                </a>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 w-full">
+                  <Phone className="w-4 h-4 text-primary" />
+                  <span>WhatsApp: 11 96109-3355</span>
+                </a>
+              </DropdownMenuItem>
+              <div className="px-3 py-2 text-xs text-muted-foreground">Cualquier duda o reclamación, contáctanos. Soporte 24 horas.</div>
+            </DropdownMenuContent>
+          </DropdownMenu>
           {user ? (
             <>
               <span className="hidden md:block text-primary-light text-sm">
