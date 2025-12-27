@@ -161,7 +161,34 @@ Tu objetivo: Que ella se sienta sostenida, comprendida y empoderada. Que deje de
     if (!response.ok) {
       const errorText = await response.text();
       console.error('AI gateway error:', response.status, errorText);
-      throw new Error(`Erro na API de IA: ${response.status}`);
+      
+      if (response.status === 402) {
+        return new Response(
+          JSON.stringify({ 
+            error: 'credits_exhausted',
+            message: 'Los créditos de IA se han agotado. Por favor, contacta soporte.' 
+          }),
+          { 
+            status: 402,
+            headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+          }
+        );
+      }
+      
+      if (response.status === 429) {
+        return new Response(
+          JSON.stringify({ 
+            error: 'rate_limited',
+            message: 'Demasiadas solicitudes. Por favor, espera un momento.' 
+          }),
+          { 
+            status: 429,
+            headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+          }
+        );
+      }
+      
+      throw new Error(`Error en la API de IA: ${response.status}`);
     }
 
     const data = await response.json();

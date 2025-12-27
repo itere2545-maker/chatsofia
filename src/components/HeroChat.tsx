@@ -159,7 +159,26 @@ const HeroChat = () => {
           imageBase64
         }
       });
+      
       if (response.error) {
+        // Check if it's a specific error from our edge function
+        const errorData = response.data;
+        if (errorData?.error === 'credits_exhausted') {
+          toast({
+            title: "Créditos agotados",
+            description: "Los créditos de IA se han agotado temporalmente. Por favor, contacta soporte para más información.",
+            variant: "destructive"
+          });
+          return;
+        }
+        if (errorData?.error === 'rate_limited') {
+          toast({
+            title: "Demasiadas solicitudes",
+            description: "Por favor, espera unos segundos antes de enviar otro mensaje.",
+            variant: "destructive"
+          });
+          return;
+        }
         throw response.error;
       }
       setInput("");
