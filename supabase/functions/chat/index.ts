@@ -88,20 +88,33 @@ Tu objetivo: Que ella se sienta sostenida, comprendida y empoderada. Que deje de
     }
 
     // Adicionar mensagem atual do usuário
-    const userMessage: any = {
-      role: 'user',
-      content: message
-    };
+    let userMessage: any;
 
-    // Se houver imagem, adicionar ao conteúdo
+    // Se houver imagem, criar mensagem multimodal
     if (imageBase64) {
-      userMessage.content = [
-        { type: 'text', text: message },
-        { type: 'image_url', image_url: { url: `data:image/jpeg;base64,${imageBase64}` } }
-      ];
+      console.log('Image received, creating multimodal message');
+      userMessage = {
+        role: 'user',
+        content: [
+          { type: 'text', text: message || '¿Qué opinas de esta imagen?' },
+          { 
+            type: 'image_url', 
+            image_url: { 
+              url: `data:image/jpeg;base64,${imageBase64}`,
+              detail: 'auto'
+            } 
+          }
+        ]
+      };
+    } else {
+      userMessage = {
+        role: 'user',
+        content: message
+      };
     }
 
     messages.push(userMessage);
+    console.log('Messages prepared:', messages.length, 'messages total, has image:', !!imageBase64);
 
     // Salvar mensagem do usuário
     let imageUrl = null;
@@ -144,6 +157,8 @@ Tu objetivo: Que ella se sienta sostenida, comprendida y empoderada. Que deje de
       throw new Error('OPENAI_API_KEY não configurada');
     }
 
+    console.log('Calling OpenAI API with model gpt-4o-mini, vision enabled');
+    
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
@@ -153,10 +168,11 @@ Tu objetivo: Que ella se sienta sostenida, comprendida y empoderada. Que deje de
       body: JSON.stringify({
         model: 'gpt-4o-mini',
         messages: messages,
-        temperature: 0.8,
         max_tokens: 1000
       }),
     });
+    
+    console.log('OpenAI response status:', response.status);
 
     if (!response.ok) {
       const errorText = await response.text();
